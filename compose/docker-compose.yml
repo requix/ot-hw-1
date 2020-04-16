@@ -9,8 +9,6 @@ services:
     volumes:
       - "..:/var/www/html"
       - "../docker/socket:/socket"
-    environment:
-      PS1: "\\u@\\h:\\w\\$$ "
  
   socket_nginx:
     image: requix/custom-nginx:1
@@ -21,5 +19,3 @@ services:
     volumes:
       - "..:/var/www/html"
       - "../docker/socket:/socket"
-    environment:
-      PS1: "\\u@\\h:\\w\\$$ "
