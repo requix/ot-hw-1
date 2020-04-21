@@ -2,13 +2,13 @@ version: "3.4"
  
 services:
  
-  socket_php:
+  socket_php:  
     image: requix/custom-php:version-1.0.0
     hostname: "socket-php"
     working_dir: "/var/www/html"
     volumes:
-      - "..:/var/www/html"
-      - "../docker/socket:/socket"
+      - appdata:/var/www/html
+      - sockdata:/socket
  
   socket_nginx:
     image: requix/custom-nginx:version-1.0.0
@@ -17,5 +17,9 @@ services:
     ports:
       - "6080:8080"
     volumes:
-      - "..:/var/www/html"
-      - "../docker/socket:/socket"
+      - appdata:/var/www/html
+      - sockdata:/socket
+
+volumes:
+  appdata:
+  sockdata:  
